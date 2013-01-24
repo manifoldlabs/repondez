@@ -1,0 +1,14 @@
+@import 'lib/bootstrap.min.css';
+
+@import 'lib/bootstrap-responsive.min.css';
+/* Répondez main LESS */
+/* Just imports everything else */
+/* Common styles for Répondez */
+body {
+  padding-top: 50px;
+}
+@media (max-width: 979px) {
+  body {
+    padding-top: 0;
+  }
+}
