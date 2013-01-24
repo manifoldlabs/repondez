@@ -30,9 +30,9 @@ class Home_Controller extends Base_Controller {
 	|
 	*/
 
-	public function action_index()
+	public function action_index($page)
 	{
-		return View::make('home.index');
+		return View::make('home.'.$page);
 	}
 
 }
