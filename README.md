@@ -1,7 +1,7 @@
-répondez
+Répondez
 ========
 
-_Répondez Twilio to automatically handle RSVPs for your formal event via phone calls or SMS._
+_Répondez uses Twilio to automatically handle RSVPs for your formal event via phone calls or SMS._
 Each guest is assigned a phone number (printed on their invitation) that connects to Répondez.
 
 How Répondez works:
