@@ -3,8 +3,7 @@
     <a class="brand" href="/">Répondez</a>
     <ul class="nav">
     	@section('navigation')
-      	<li class="active"><a href="/">Guests</a></li>
-      	<li class=""><a href="/log">Log</a></li>
+      	<li><a href="/events">Events</a></li>
       @yield_section
     </ul>
   </div></div>
