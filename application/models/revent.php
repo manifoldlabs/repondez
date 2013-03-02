@@ -8,11 +8,11 @@ class Revent extends Eloquent  {
 
   // relationships
   public function user() {
-    return $this->belongs_to('User');
+    return $this->belongs_to('User','user_id');
   }
 
   public function invitations() {
-    return $this->has_many('Invitation');
+    return $this->has_many('Invitation','event_id');
   }
 
   ///// queries

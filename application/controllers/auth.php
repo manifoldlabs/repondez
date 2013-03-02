@@ -6,6 +6,10 @@ class Auth_Controller extends Base_Controller  {
 
 	// login / logout
 	public function get_login() {
+		if (Auth::check()) {
+			// already logged in
+			return $this->login_redirect();
+		}
 		return View::make('users.login');
 	}
 
@@ -21,14 +25,7 @@ class Auth_Controller extends Base_Controller  {
 
 		// attempt login
 		if(Auth::attempt($user_details)) {
-			if (Session::get('login_redirect')) {
-				$redirect = Session::get('login_redirect');
-				Session::forget('login_redirect');
-			}	
-			else 
-				$redirect = 'events';
-
-			return Redirect::to($redirect)->with('success_message','You are now logged in!');
+			return $this->login_redirect();
 		} else {
 			return Redirect::to('login')->with('error','Username or password not correct');
 		}
@@ -65,6 +62,17 @@ class Auth_Controller extends Base_Controller  {
 		Auth::login($user->id);
 
 		return Redirect::to('events');
+	}
+
+	private function login_redirect() {
+		if (Session::get('login_redirect')) {
+			$redirect = Session::get('login_redirect');
+			Session::forget('login_redirect');
+		}	
+		else 
+			$redirect = 'events';
+
+		return Redirect::to($redirect)->with('success_message','You are now logged in!');
 	}
 
 }
