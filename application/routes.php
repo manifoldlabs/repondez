@@ -1,61 +1,40 @@
 <?php
 
+// landing page
+Route::get('/', 'home@index');
 
-Route::controller(Controller::detect());
+// auth
+Route::any('login', array('as'=>'login', 'uses'=>'auth@login'));
+Route::any('logout', array('as'=>'logout', 'uses'=>'auth@logout'));
+Route::any('signup', array('as'=>'register', 'uses'=>'auth@register'));
 
-Event::listen('404', function()
-{
-	return Response::error('404');
+// secure routes
+Route::group(array('before' => 'auth'), function() {
+
+    Route::controller(array(
+        'events',
+        'users',
+        'invitations'
+    ));
 });
 
-Event::listen('500', function()
-{
-	return Response::error('500');
+// auth filter
+Route::filter('auth', function() {
+  if (!Auth::check()) {
+    Session::put('login_redirect',URL::current());
+    return Redirect::to('login');
+  }
 });
 
-Route::filter('before', function() {
-
-	// check for auth against whitelist
-	$location = URI::segment(1) . '/' . URI::segment(2);
-	if (Auth::guest() && !in_array( $location, Config::get('application.safe')))
-		return Redirect::to('login');
+// boilerplate from Laravel install
+Route::filter('csrf', function() {
+  if (Request::forged()) return Response::error('500');
 });
 
-Route::filter('after', function($response)
-{
-	// Do stuff after every request to your application...
+Event::listen('404', function() {
+  return Response::error('404');
 });
 
-Route::filter('csrf', function()
-{
-	if (Request::forged()) return Response::error('500');
-});
-
-
-// Log in routes here rather than users controller
-Route::get('/login', function() { // view login page
-	return View::make('users.login');
-});
-
-Route::post('/login', function() { // login attempted
-	$user_details = Input::all();
-	$rules = array('username' => 'required|email', 'password' => 'required');
-
-	// validate
-	$validation = Validator::make($user_details, $rules);
-	if($validation->fails()){
-		return Redirect::to('login')->with_errors($validation)->with_input();
-	}
-
-	// attempt login
-	if(Auth::attempt($user_details)) {
-		return Redirect::to('events')->with('success_message','You are now logged in!');
-	} else {
-		return Redirect::to('login')->with('error','Username or password not correct');
-	}
-});
-
-Route::get('/logout', function() { // logout
-	Auth::logout();
-	return Redirect::to('/');
+Event::listen('500', function() {
+  return Response::error('500');
 });

@@ -4,7 +4,7 @@
 
 	<div class='row'>
 		<form class='span4 offset4' method='post'>
-			<legend>Log in <small><a href='/users/register'>or sign up</a></small></legend>
+			<legend>Log in <small><a href='/signup'>or sign up</a></small></legend>
 			<div class='control-group'>
 				<input class='span4' type='email' name='username' placeholder='email address' value="{{ Input::old('email') }}" />
 			</div>
