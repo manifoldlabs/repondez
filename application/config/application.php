@@ -2,6 +2,13 @@
 
 return array(
 
+	// routes that don't require log in
+	'safe'=>array(
+		'/',
+		'login/',
+		'users/register'
+	),
+
 	/*
 	|--------------------------------------------------------------------------
 	| Application URL

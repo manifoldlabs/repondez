@@ -1,7 +1,8 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <title>Répondez @if (isset($title)) {{": ".$title}} @endif</title>
+    <title>Répondez @if (isset($title))  {{": ".$title}} @endif
+    </title>
 
     <!-- Styles -->
     <link href="/css/application.css" rel="stylesheet">
@@ -10,6 +11,7 @@
     @include('partials.header')
 
     <div class='container' id='main'>
+      @include('partials.success')
       @yield('content')
     </div>
     

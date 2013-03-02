@@ -6,9 +6,14 @@
 /* Common styles for Répondez */
 body {
   padding-top: 50px;
+  -webkit-font-smoothing: antialiased;
 }
 @media (max-width: 979px) {
   body {
     padding-top: 0;
   }
+}
+form small {
+  float: right;
+  color: #aaa;
 }

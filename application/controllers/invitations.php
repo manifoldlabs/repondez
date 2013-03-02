@@ -1,6 +1,6 @@
 <?php
 
-class Invitation_Controller extends Base_Controller 
+class Invitations_Controller extends Base_Controller 
 {
 
 }

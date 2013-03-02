@@ -68,9 +68,7 @@ return array(
 			'password' => 'root',
 			'charset'  => 'utf8',
 			'prefix'   => '',
-		),
-	),
-
-	),
+		)
+	)
 
 );
