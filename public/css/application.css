@@ -1072,10 +1072,16 @@ form small {
 .green {
   color: #0a0;
 }
+@media (max-width: 979px) {
+  h2 {
+    margin-top: 0px;
+    margin-bottom: 0;
+  }
+}
 /* Lists */
 ul.list-table {
   list-style-type: none;
-  margin: 30px 0 0 0;
+  margin: 20px 0 0 0;
   padding: 0;
 }
 ul.list-table li {
@@ -1099,7 +1105,7 @@ ul.list-table li .response .btn {
   color: #bbb;
   font-weight: bold;
 }
-@media (max-width: 979px) {
+@media (max-width: 767px) {
   ul.list-table li .response {
     margin-top: 20px;
   }
@@ -1110,6 +1116,9 @@ ul.list-table li .response small {
   color: #666;
   text-transform: uppercase;
   letter-spacing: .1em;
+}
+ul.list-table li .tools {
+  margin-top: 20px;
 }
 ul.list-table li h3 {
   margin-top: 0;
