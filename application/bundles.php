@@ -36,6 +36,10 @@
 return array(
 
 	'docs' => array('handles' => 'docs'),
-	'twilio'
-
+	'twilio',
+	'datefmt' => array(
+	  'autoloads' => array(
+	    'map' => array('DateFmt' => '(:bundle)/datefmt.php')
+	  )
+)
 );

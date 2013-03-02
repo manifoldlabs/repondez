@@ -171,3 +171,6 @@ if ( ! Request::cli() and Config::get('session.driver') !== '')
 {
 	Session::load();
 }
+
+/* Require macros */
+include ('macros.php');

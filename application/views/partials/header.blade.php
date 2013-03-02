@@ -11,7 +11,7 @@
           <div class='nav-collapse collapse'>
             <ul class='nav user-nav'>
                 <li class='hidden-phone'><a>Logged in as {{ Auth::user()->email }}</a></li>
-                <li><a href="/events">My events</a></li>
+                <li>{{ HTML::link_to_action('events', 'My events') }}</li>
                 <li><a class='' href='/logout'>Log out</a></li>
             <ul>  
           </div>
@@ -19,7 +19,6 @@
           <ul class='nav user-nav'>
             <li><a href='/login'>Log in</a></li>
           </ul>
-          
         @endif
   
   </div></div>

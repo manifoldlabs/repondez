@@ -9,6 +9,10 @@ return array(
 		'users/register'
 	),
 
+	'date_formats'=>array(
+		'full_date'=>'D__, AT[M__ d#, y##]'
+	),
+
 	/*
 	|--------------------------------------------------------------------------
 	| Application URL

@@ -31,7 +31,7 @@ class Initial_Migration {
 	    $table->date('date');
 
 	    $table->integer('access_code');
-	    $table->string('access_number',10);
+	    $table->string('access_number',12);
 
 	    // created_at | updated_at DATETIME
 	    $table->timestamps();  
