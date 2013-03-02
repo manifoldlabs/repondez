@@ -49,7 +49,7 @@ Route::post('/login', function() { // login attempted
 
 	// attempt login
 	if(Auth::attempt($user_details)) {
-		return Redirect::to('events')->with('success','You are now logged in!');
+		return Redirect::to('events')->with('success_message','You are now logged in!');
 	} else {
 		return Redirect::to('login')->with('error','Username or password not correct');
 	}

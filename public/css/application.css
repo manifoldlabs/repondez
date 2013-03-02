@@ -13,6 +13,10 @@ body {
     padding-top: 0;
   }
 }
+.nav.user-nav {
+  float: right;
+  text-align: right;
+}
 form small {
   float: right;
   color: #aaa;

@@ -3,12 +3,10 @@
 @section('content')
 
 @include('partials.errors')
-@include('partials.success')
 
-<h1>Your events</h1>
-<div class='row'>
-	
-</div>
-
+	<h2>My events</h2>
+	<div class='row'>
+		
+	</div>
 
 @endsection
