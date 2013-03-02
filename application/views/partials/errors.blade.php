@@ -1,4 +1,3 @@
-<div class="nine columns">
 
   <?php if($errors->messages) { //this is pass through: with_errors($validation) ?>
   <div class="alert-box alert">
@@ -19,4 +18,3 @@
     <li>{{ $error }}</li>
   </div>
   <?php } ?>
-</div>

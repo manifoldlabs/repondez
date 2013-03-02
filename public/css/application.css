@@ -17,6 +17,12 @@ body {
   float: right;
   text-align: right;
 }
+@media (max-width: 979px) {
+  .nav.user-nav {
+    text-align: left;
+    float: none;
+  }
+}
 form small {
   float: right;
   color: #aaa;
