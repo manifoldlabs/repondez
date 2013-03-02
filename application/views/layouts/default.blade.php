@@ -24,5 +24,6 @@
       }
     </script>
     <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/repondez.js"></script>
   </body>
 </html>
