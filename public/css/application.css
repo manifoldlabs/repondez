@@ -1066,17 +1066,17 @@ form small {
   float: right;
   color: #aaa;
 }
-.red {
-  color: #a00;
-}
-.green {
-  color: #0a0;
-}
 @media (max-width: 979px) {
   h2 {
     margin-top: 0px;
     margin-bottom: 0;
   }
+}
+.red {
+  color: #a00;
+}
+.green {
+  color: #0a0;
 }
 /* Lists */
 ul.list-table {
