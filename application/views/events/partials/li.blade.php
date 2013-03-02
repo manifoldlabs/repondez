@@ -1,11 +1,12 @@
 <li class='container'>
 	<div class='item-wrap row'>
-		<div class='span3'>
+		<div class='span12'>
 			<h3>{{ $event->name }}</h3>
+		</div>
+		<div class='span3'>
 			{{ DateFmt::Format(Config::get('application.date_formats.full_date'), strtotime($event->date)) }}<br/>
 			<i class='icon-phone'></i>&nbsp;<span rel='tooltip' data-placement='right' title='Phone number'>{{ HTML::phone_number($event->access_number) }}</span><br/>
 			<i class='icon-lock'></i>&nbsp;<span rel='tooltip' data-placement='right' title='Access code'>{{ $event->access_code }}</span>
-
 		</div>
 
 		<div class='span4 response'>

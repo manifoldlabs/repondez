@@ -8,7 +8,7 @@
     <link href="/css/application.css" rel="stylesheet">
 
   </head>
-  <body>
+  <body class='{{ Request::route()->controller }}'>
     @include('partials.header')
 
     <div class='container' id='main'>
