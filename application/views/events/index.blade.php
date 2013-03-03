@@ -1,10 +1,7 @@
 @layout('layouts.default')
 
 @section('content')
-
-@include('partials.errors')
-
-	<h2>My events</h2>
+	<h2>My events <a class='btn btn-primary float-right hidden-phone' href='{{ URL::to_action('events@add')}}'><i class='icon-plus'></i> Add Event</a> </h2>
 
 		<ul id='userEvents' class='list-table'>
 			@foreach ($events as $event)

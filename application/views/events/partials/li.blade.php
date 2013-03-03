@@ -10,8 +10,8 @@
 		</div>
 
 		<div class='span4 response'>
-			<a class='btn btn-large' rel='tooltip' title='yes / no / no reply' href='/events/invitations/{{ $event->id }}'><span class='green'>0</span> / <span class='red'>0</span> / 0</a>
-			<small><i class='icon-user'></i> Total Guests:&nbsp;<strong>0</strong></small> 
+			<a class='btn btn-large' rel='tooltip' title='Responses: yes / no / not replied' href='/events/invitations/{{ $event->id }}'><span class='green'>{{ (int)$event->count_yes }}</span> / <span class='red'>{{ (int)$event->count_no }}</span> / {{ (int)$event->count_noreply }}</a>
+			<small><i class='icon-user'></i> Total Confirmed Guests:&nbsp;<strong>{{ (int)$event->count_totalguests }}</strong></small> 
 		</div>
 
 		<div class='clearfix'>&nbsp;</div>

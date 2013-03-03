@@ -14,7 +14,7 @@
     $error = Session::get('error'); //this is pass through: with('key', 'value') on form redirect
   ?> 
   <?php if(!empty($error)) { ?>
-  <div class="alert-box alert">
-    <li>{{ $error }}</li>
+  <div class="alert alert-error">
+    <strong>{{ $error }}</strong>
   </div>
   <?php } ?>

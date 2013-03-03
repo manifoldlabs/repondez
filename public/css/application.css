@@ -1078,6 +1078,9 @@ form small {
 .green {
   color: #0a0;
 }
+.float-right {
+  float: right;
+}
 /* Lists */
 ul.list-table {
   list-style-type: none;
