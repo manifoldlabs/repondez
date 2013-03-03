@@ -5,7 +5,7 @@ ul.list-table {
 	margin:20px 0 0 0; padding:0;
 	li {
 		border-top:1px solid #ddd;
-		padding:10px 0px;
+		padding:10px 0px 17px 0px;
 
 		.name {
 			font-weight:bold;
@@ -21,9 +21,8 @@ ul.list-table {
 		.response {
 			.btn {
 				width:100%;
-				padding-left:0;
-				padding-right:0;
-				font-size:23px;
+				padding:20px 0px;
+				font-size:32px;
 				color:#bbb;
 				font-weight:bold;
 			}
@@ -43,7 +42,7 @@ ul.list-table {
 		}
 
 		.tools {
-			margin-top:20px;
+			margin-top:12px;
 		}
 
 		h3 {
@@ -57,6 +56,39 @@ ul.list-table {
 	&.big {
 		li {
 			padding:20px 0px;
+		}
+	}
+}
+
+#invitationStatus {
+	text-align:center;
+	margin-top:20px;
+
+	div.status {
+		display:inline-block;
+		text-align:center;
+		padding:5px 10px;
+		border-right:1px solid #ddd;
+		border-left:1px solid white;
+		margin-right:-4px;
+		min-width:55px;
+
+		&:first-child {
+			border-left:none;
+		}
+		&:last-child {
+			border-right:none;
+		}
+
+		.num {
+			font-weight:bold;
+			font-size:25px;
+		}
+		small {
+			display:block;
+			text-transform:uppercase;
+			font-size:12px;
+			font-weight:bold;
 		}
 	}
 }

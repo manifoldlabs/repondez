@@ -32,7 +32,7 @@ class Events_Controller extends Base_Controller  {
 				$event->user_id=Auth::user()->id;
 				$event->save();
 
-				return Redirect::to_action('events@edit',array($event->id))->with('success_message','Event created!');
+				return Redirect::to_action('invitations@event',array($event->id))->with('success_message','Event created!');
 			} else {
 				Input::flash();
 				return Redirect::to_action('events@add')->with_errors(Revent::$validation)->with_input();
@@ -43,7 +43,7 @@ class Events_Controller extends Base_Controller  {
 		// show edit form for an event
 
 		// get event
-		$event = Revent::find($id)->count_guests();
+		$event = Revent::find($id);
 		if (is_null($event) || !$event->is_mine()) {
 			return Redirect::to('events')->with('error','Invalid event!');
 		}

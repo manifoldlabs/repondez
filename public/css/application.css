@@ -1072,11 +1072,17 @@ form small {
     margin-bottom: 0;
   }
 }
-.red {
+.red,
+.rsvp-no {
   color: #a00;
 }
-.green {
+.green,
+.rsvp-yes {
   color: #0a0;
+}
+.gray,
+.rsvp-noreply {
+  color: #aaa;
 }
 .float-right {
   float: right;
@@ -1089,7 +1095,7 @@ ul.list-table {
 }
 ul.list-table li {
   border-top: 1px solid #ddd;
-  padding: 10px 0px;
+  padding: 10px 0px 17px 0px;
 }
 ul.list-table li .name {
   font-weight: bold;
@@ -1102,9 +1108,8 @@ ul.list-table li.header {
 }
 ul.list-table li .response .btn {
   width: 100%;
-  padding-left: 0;
-  padding-right: 0;
-  font-size: 23px;
+  padding: 20px 0px;
+  font-size: 32px;
   color: #bbb;
   font-weight: bold;
 }
@@ -1121,7 +1126,7 @@ ul.list-table li .response small {
   letter-spacing: .1em;
 }
 ul.list-table li .tools {
-  margin-top: 20px;
+  margin-top: 12px;
 }
 ul.list-table li h3 {
   margin-top: 0;
@@ -1129,4 +1134,33 @@ ul.list-table li h3 {
 }
 ul.list-table.big li {
   padding: 20px 0px;
+}
+#invitationStatus {
+  text-align: center;
+  margin-top: 20px;
+}
+#invitationStatus div.status {
+  display: inline-block;
+  text-align: center;
+  padding: 5px 10px;
+  border-right: 1px solid #ddd;
+  border-left: 1px solid white;
+  margin-right: -4px;
+  min-width: 55px;
+}
+#invitationStatus div.status:first-child {
+  border-left: none;
+}
+#invitationStatus div.status:last-child {
+  border-right: none;
+}
+#invitationStatus div.status .num {
+  font-weight: bold;
+  font-size: 25px;
+}
+#invitationStatus div.status small {
+  display: block;
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: bold;
 }
