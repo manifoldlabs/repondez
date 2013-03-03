@@ -17,12 +17,15 @@
 				<i class='icon-group gray'></i> <strong>{{ $invitation->count }}</strong>&nbsp;/&nbsp;{{ $invitation->count_expected }}
 			@endif
 		</div>
-		<div class='span3'>
+		<div class='span2'>
 			@if($invitation->access_number)
 				<i class='icon-phone gray'></i>&nbsp;<span rel='tooltip' data-placement='right' title='RSVP phone number'>{{ HTML::phone_number($invitation->access_number) }}</span><br/>
 			@else
 				<i class='icon-lock gray'></i>&nbsp;<span rel='tooltip' data-placement='right' title='RSVP access code'>{{ $invitation->access_code }}</span>
 			@endif
+		</div>
+		<div class='span3'>
+			<a href='{{ action('invitations@edit',array($invitation->id)) }}' class='btn btn-small'><i class='icon-pencil'></i> Edit</a>
 		</div>
 	</div>
 </li>

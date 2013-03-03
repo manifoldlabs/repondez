@@ -1,7 +1,7 @@
 @layout('layouts.default')
 
 @section('content')
-	<h2>Invitations <small>{{ $event->name }}</small><a href='{{ action('invitations@event@add',array('event'=>$event->id)) }}' class='btn btn-primary float-right hidden-phone'><i class='icon-plus'></i> Add Invitation</a> </h2>
+	<h2>Invitations <small>{{ $event->name }}</small><a href='{{ action('invitations@add') }}' class='btn btn-primary float-right hidden-phone'><i class='icon-plus'></i> Add Invitation</a> </h2>
 
 	@if ($invitations)
 		<div class='row'>

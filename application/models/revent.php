@@ -36,19 +36,6 @@ class Revent extends Rbase  {
     return $this;
   }
 
-  //// booleans
-  public function is_mine() {
-    // does the event belong to the logged in user
-    if (!$this->id || !Auth::check()) return false;
-
-    $is_mine = ($this->user_id == Auth::user()->id);
-
-    if (!$is_mine) 
-      Log::auth('Attempt by user (User->id='.Auth::user()->id.') to access event (Event->id='.$this->id.') of another user');
-
-    return $is_mine;
-  }
-
   ///// queries
   public static function mine() { 
   	// get logged in user's events

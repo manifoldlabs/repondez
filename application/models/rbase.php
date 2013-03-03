@@ -16,4 +16,17 @@ class Rbase extends Eloquent  {
     return static::$validation->passes();
   }
 
+  //// auth
+  public function is_mine() {
+    // does the object belong to the logged in user
+    if (!$this->id || !Auth::check()) return false;
+
+    $is_mine = ($this->user_id == Auth::user()->id);
+
+    if (!$is_mine) 
+      Log::auth('Attempt by user (User->id='.Auth::user()->id.') to access '.get_class($this).' ('.get_class($this).'->id='.$this->id.') of another user');
+
+    return $is_mine;
+  }
+
 }
