@@ -4,13 +4,28 @@
 			{{ $invitation->name }}
 		</div>
 		<div class='span1'>
-			@if($invitation->rsvp)
-				<span class='rsvp rsvp-{{ $invitation->rsvp }}'>
-					<i class='icon-circle'></i> {{ ucfirst($invitation->rsvp) }}
-				</span>
-			@else
-				<span class='rsvp rsvp-noreply'><i class='icon-circle-blank'></i></span>
-			@endif
+			<div class="btn-group">
+			  <a class="btn dropdown-toggle btn-small" data-toggle="dropdown" href="#">
+		    	@if($invitation->rsvp)
+						<span class='rsvp rsvp-{{ $invitation->rsvp }}'>
+							<i class='icon-circle'></i> {{ ucfirst($invitation->rsvp) }}
+						</span>
+					@else
+						<span class='rsvp rsvp-noreply'><i class='icon-circle-blank'></i> ???</span>
+					@endif
+			    <span class="caret"></span>
+			  </a>
+			  <ul class="dropdown-menu">
+			   	<li><a href='{{ action('invitations@rsvp',array($invitation->id, 'yes')) }}'><span class='green'>Yes</span></a></li>
+			   	<li><a href='{{ action('invitations@rsvp',array($invitation->id, 'no')) }}'><span class='red'>No</span></a></li>
+			  	<li class='divider'></li>
+			   	<li><a href='{{ action('invitations@rsvp',array($invitation->id, 'noreply')) }}'><span class='gray'>No reply</span></a></li>
+			  </ul>
+		  </div>
+
+
+
+			
 		</div>
 		<div class='span1'>
 			@if($invitation->rsvp)
@@ -26,6 +41,9 @@
 		</div>
 		<div class='span3'>
 			<a href='{{ action('invitations@edit',array($invitation->id)) }}' class='btn btn-small'><i class='icon-pencil'></i> Edit</a>
+				
+
+
 		</div>
 	</div>
 </li>

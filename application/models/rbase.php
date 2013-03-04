@@ -4,6 +4,7 @@ class Rbase extends Eloquent  {
 
 	protected static $rules=array();
 	public static $validation;
+  protected $twilio;
 
 
   //// validation
@@ -27,6 +28,16 @@ class Rbase extends Eloquent  {
       Log::auth('Attempt by user (User->id='.Auth::user()->id.') to access '.get_class($this).' ('.get_class($this).'->id='.$this->id.') of another user');
 
     return $is_mine;
+  }
+
+  //// Twilio!
+
+  //// Init
+  // just call $this->twilio_init() before using $twilio as Twilio object
+  public function twilio_init() {
+    Log::twilio('twilio_init() from model '.get_class($this).' with account_sid '.Config::get('application.twilio.account_sid'));
+    Bundle::start('twilio');
+    $this->twilio = new Services_Twilio(Config::get('application.twilio.account_sid'),Config::get('application.twilio.account_token'));
   }
 
 }

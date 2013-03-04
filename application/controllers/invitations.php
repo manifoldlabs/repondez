@@ -15,6 +15,7 @@ class Invitations_Controller extends Base_Controller  {
 
 		// save event to session for invitations/add form
 		Session::put('current_eventid',$id);
+		Session::put('rsvp_update_redirect_url',URL::full());
 
 		// get invitations
 		$invitations = $event->invitations()->order_by('name','asc')->get();
@@ -77,7 +78,7 @@ class Invitations_Controller extends Base_Controller  {
 		// get invitation
 		$invite = Invitation::find($id);
 		if (is_null($invite) || !$invite->is_mine()) {
-			return Redirect::to_action('invitations@event',array(Session::get('current_eventid')))->with('error','Invalid event!');
+			return Redirect::to_action('invitations@event',array(Session::get('current_eventid')))->with('error','Invalid invite!');
 		}
 
 		// only need to return the event we are using
@@ -90,6 +91,9 @@ class Invitations_Controller extends Base_Controller  {
 			'count_expected'=>$invite->count_expected
 		));	
 		Input::flash();
+
+		// come back here
+		Session::put('rsvp_update_redirect_url',URL::full());
 
 		// view
 		$view = View::make('invitations.edit');
@@ -132,7 +136,7 @@ class Invitations_Controller extends Base_Controller  {
 	public function post_delete($id) {
 		$invite = Invitation::find($id);
 		if (is_null($invite) || !$invite->is_mine()) {
-			return Redirect::to_action('invitations@event',array(Session::get('current_eventid')))->with('error','Invalid event!');
+			return Redirect::to_action('invitations@event',array(Session::get('current_eventid')))->with('error','Invalid invite!');
 		}
 
 		$form_details = Input::all();
@@ -143,5 +147,40 @@ class Invitations_Controller extends Base_Controller  {
 			return Redirect::to_action('invitations@edit',array($id))->with('error','Be sure to check the checkbox, then click Delete to delete this invitation');
 		}
 	}
+
+	public function get_provision($id,$areacode) {
+		// use model to provision a number
+		$invite = Invitation::find($id);
+		if (is_null($invite) || !$invite->is_mine()) {
+			return Redirect::to_action('invitations@event',array(Session::get('current_eventid')))->with('error','Invalid invite!');
+		}
+
+		$invite->provision_access_number($areacode);
+		$invite->save();
+		
+		return "check logs";
+	}
+
+	//// Update RSVPs via /invites/rsvp/[invitation_id]/[rsvp]/
+	public function get_rsvp($id, $rsvp) {
+		$invite = Invitation::find($id);
+		if (is_null($invite) || !$invite->is_mine()) {
+			return Redirect::to_action('invitations@event',array(Session::get('current_eventid')))->with('error','Invalid invite!');
+		}
+
+		$invite->update_rsvp($rsvp); // in model to handle logic, notifications, etc.
+		$invite->save();
+
+		Log::debug(Session::get('rsvp_update_redirect_url'));
+
+		if (is_null(Session::get('rsvp_update_redirect_url'))) {
+			$redirect = Redirect::to_action('invitations@edit',array($id));
+		} else {
+			$redirect = Redirect::to(Session::get('redirect_url'));
+			Session::forget('rsvp_update_redirect_url');
+		}
+		return $redirect->with('success_message','RSVP updated');
+	}
+
 
 }

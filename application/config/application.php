@@ -9,6 +9,14 @@ return array(
 		'users/register'
 	),
 
+	// Twilio account info
+	'twilio'=>array(
+		'account_sid'=>'',
+		'token'=>'',
+		'app_sid'=>''
+	),
+
+
 	'date_formats'=>array(
 		'full_date'=>'D__, AT[M__ d#, y##]'
 	),

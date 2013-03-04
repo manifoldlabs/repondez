@@ -1093,20 +1093,27 @@ ul.list-table {
   margin: 20px 0 0 0;
   padding: 0;
 }
-ul.list-table li {
+ul.list-table ul.dropdown-menu {
+  margin: 0;
+}
+ul.list-table ul.dropdown-menu li {
+  border: none;
+  padding: 0px;
+}
+ul.list-table:not(.dropdown-menu) li {
   border-top: 1px solid #ddd;
   padding: 10px 0px 17px 0px;
 }
-ul.list-table li .name {
+ul.list-table:not(.dropdown-menu) li .name {
   font-weight: bold;
 }
-ul.list-table li.header {
+ul.list-table:not(.dropdown-menu) li.header {
   font-style: italic;
   color: #aaa;
   font-size: 16px;
   border-top: 0px;
 }
-ul.list-table li .response .btn {
+ul.list-table:not(.dropdown-menu) li .response .btn {
   width: 100%;
   padding: 20px 0px;
   font-size: 32px;
@@ -1114,21 +1121,21 @@ ul.list-table li .response .btn {
   font-weight: bold;
 }
 @media (max-width: 767px) {
-  ul.list-table li .response {
+  ul.list-table:not(.dropdown-menu) li .response {
     margin-top: 20px;
   }
 }
-ul.list-table li .response small {
+ul.list-table:not(.dropdown-menu) li .response small {
   margin-top: 6px;
   display: block;
   color: #666;
   text-transform: uppercase;
   letter-spacing: .1em;
 }
-ul.list-table li .tools {
+ul.list-table:not(.dropdown-menu) li .tools {
   margin-top: 12px;
 }
-ul.list-table li h3 {
+ul.list-table:not(.dropdown-menu) li h3 {
   margin-top: 0;
   font-weight: normal;
 }
@@ -1163,4 +1170,10 @@ ul.list-table.big li {
   text-transform: uppercase;
   font-size: 12px;
   font-weight: bold;
+}
+#invitationDetailStatus {
+  margin-top: 10px;
+}
+#invitationDetailStatus h3 {
+  margin: 0;
 }

@@ -3,7 +3,16 @@
 ul.list-table {
 	list-style-type:none;
 	margin:20px 0 0 0; padding:0;
-	li {
+
+	ul.dropdown-menu {
+		margin:0;
+		li {
+			border:none;
+			padding:0px;
+		}
+	}
+
+	&:not(.dropdown-menu) li {
 		border-top:1px solid #ddd;
 		padding:10px 0px 17px 0px;
 
@@ -90,5 +99,12 @@ ul.list-table {
 			font-size:12px;
 			font-weight:bold;
 		}
+	}
+}
+
+#invitationDetailStatus {
+	margin-top:10px;
+	h3 {
+		margin:0;
 	}
 }
