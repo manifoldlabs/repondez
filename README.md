@@ -13,7 +13,7 @@ This repository is in a basically unusable, heavy development, first-time-using-
 3. Point Apache vhost to /public directory
 4. Edit /applications/config/local/database.php to point to your MySQL
 5. Create /applications/config/local/application.php with Twilio creds (see global application.php file for structure)
-6. Run `php artisan migrate:install`
+6. Run `php artisan migrate:install` from repondez directory
 7. Run `php artisan migrate`
 8. Cross fingers
 9. Load up your vhost in a browser
