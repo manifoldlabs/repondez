@@ -34,8 +34,8 @@ class Invitation extends Rbase  {
 	}
 
 
-  // use the Twilio API to purchase a number in given area code and
-  // assign it to this models' access_number field
+  // use the Number model to purchase a number in given area code and
+  // attach it to this Invitation's access_number field
   public function provision_access_number($areacode=614) {
     if (!$this->id) return false;
 
@@ -44,6 +44,7 @@ class Invitation extends Rbase  {
     $number = new Number();
     if($number->provision($areacode)) {
     	$number->invitation_id=$this->id;
+    	$number->user_id=Auth::user()->id;
     	$number->save();
     	$this->access_number=$number->id;
     	return $this;
