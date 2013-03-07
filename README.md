@@ -10,7 +10,7 @@ This repository is in a basically unusable, heavy development, first-time-using-
 
 1. Fork, clone
 2. Make sure /storage is writeable by Apache (or whatever server you want to use)
-3. Point Apache vhost to /public directory
+3. Point Apache vhost to /public directory (use *.dev, *.test, or localhost to trigger local config)
 4. Edit /applications/config/local/database.php to point to your MySQL
 5. Create /applications/config/local/application.php with Twilio creds (see global application.php file for structure)
 6. Run `php artisan migrate:install` from repondez directory
