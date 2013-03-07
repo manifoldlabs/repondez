@@ -6,8 +6,7 @@ Each guest is assigned a phone number (printed on their invitation) that connect
 
 This repository is in a basically unusable, heavy development, first-time-using-laravel type of state.
 
-Installation
-========
+## Installation
 
 1. Fork, clone
 2. Make sure /storage is writeable by Apache (or whatever server you want to use)
